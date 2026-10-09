@@ -1,0 +1,26 @@
+## @file
+#  Samsung/Exynos UART SerialPortLib for Exynos 2200 (SKELETON).
+##
+
+[Defines]
+  INF_VERSION                    = 0x0001001B
+  BASE_NAME                      = Exynos2200SerialPortLib
+  FILE_GUID                      = 11111111-2222-3333-4444-555555555520
+  MODULE_TYPE                    = BASE
+  VERSION_STRING                 = 0.1
+  LIBRARY_CLASS                  = SerialPortLib
+
+[Sources]
+  Exynos2200SerialPortLib.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  Silicon/Exynos2200Pkg/Exynos2200Pkg.dec
+
+[LibraryClasses]
+  BaseLib
+  IoLib
+  PcdLib
+
+[FixedPcd]
+  gExynos2200TokenSpaceGuid.PcdSerialRegisterBase

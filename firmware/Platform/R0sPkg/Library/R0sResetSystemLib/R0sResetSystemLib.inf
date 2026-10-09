@@ -1,0 +1,32 @@
+## @file
+#  Runtime ResetSystemLib for Exynos 9810 / Galaxy S9+.
+#
+##
+
+[Defines]
+  INF_VERSION                    = 1.29
+  BASE_NAME                      = R0sResetSystemLib
+  FILE_GUID                      = 9631ACB0-8E87-4D3B-87A7-3AC1EF042B28
+  MODULE_TYPE                    = DXE_RUNTIME_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = ResetSystemLib|DXE_RUNTIME_DRIVER
+  CONSTRUCTOR                    = R0sResetSystemLibConstructor
+
+[Sources]
+  R0sResetSystemLib.c
+
+[Packages]
+  ArmPkg/ArmPkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  MdePkg/MdePkg.dec
+  Silicon/Exynos2200Pkg/Exynos2200Pkg.dec
+
+[LibraryClasses]
+  ArmLib
+  ArmMonitorLib
+  BaseLib
+  DebugLib
+  DxeServicesTableLib
+  IoLib
+  UefiBootServicesTableLib
+  UefiRuntimeLib

@@ -1,0 +1,33 @@
+## @file
+#  Silicon package declaration for Exynos 2200 (Galaxy S22 family, r0s = S22).
+#  Every base below is UNVERIFIED (0 = unknown) until extracted from the
+#  device's own DT. See Include/Platform/Exynos2200.h and docs/r0s-port.md.
+##
+
+[Defines]
+  DEC_SPECIFICATION              = 0x0001001B
+  PACKAGE_NAME                   = Exynos2200Pkg
+  PACKAGE_GUID                   = 11111111-2222-3333-4444-555555555520
+  PACKAGE_VERSION                = 0.1
+
+[Includes]
+  Include
+
+[Guids]
+  gExynos2200TokenSpaceGuid = { 0xe2200000, 0x0001, 0x0001, { 0xa0, 0x01, 0x00, 0x00, 0x00, 0x00, 0x22, 0x00 } }
+
+[PcdsFixedAtBuild]
+  ## Debug UART base. UNKNOWN: fill from the r0s DT (USI/UART node).
+  gExynos2200TokenSpaceGuid.PcdSerialRegisterBase|0x0000000000000000|UINT64|0x00000001
+
+  ## DRAM base. Exynos convention is 0x80000000; confirm on device.
+  gExynos2200TokenSpaceGuid.PcdSystemMemoryBase|0x0000000080000000|UINT64|0x00000002
+
+  ## DRAM size for first bring-up (safe subset). UNKNOWN: derive from DT memory banks.
+  gExynos2200TokenSpaceGuid.PcdSystemMemorySize|0x0000000000000000|UINT64|0x00000003
+
+  ## GICv3 distributor base. UNKNOWN. (Exynos 2200 uses GICv3, not the 9810's GICv2.)
+  gExynos2200TokenSpaceGuid.PcdGicDistributorBase|0x0000000000000000|UINT64|0x00000004
+
+  ## GICv3 redistributor region base. UNKNOWN.
+  gExynos2200TokenSpaceGuid.PcdGicRedistributorsBase|0x0000000000000000|UINT64|0x00000005
